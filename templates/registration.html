@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reģistrācija</title>
+</head>
+<body>
+    <h1>Reģistrācija</h1>
+    <form method="POST">
+        <label for="first_name">Vārds:</label><br>
+        <input type="text" name="first_name" required><br>
+        <label for="last_name">Uzvārds:</label><br>
+        <input type="text" name="last_name" required><br>
+        <label for="username">Lietotājvārds:</label><br>
+        <input type="text" name="username" required><br><br>
+        <button type="submit">Reģistrēties</button>
+    </form>
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
