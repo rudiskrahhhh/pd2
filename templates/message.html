@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziņojumi</title>
+</head>
+<body>
+    <h1>Ziņojumi</h1>
+    <form method="POST">
+        <label for="username">Izvēlieties lietotāju:</label><br>
+        <select name="username" required>
+            {% for user in users %}
+            <option value="{{ user[0] }}">{{ user[0] }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="message">Ziņojums:</label><br>
+        <textarea name="message" required></textarea><br><br>
+        <button type="submit">Pievienot</button>
+    </form>
+
+    {% if error %}
+    <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <h2>Ziņas:</h2>
+    <table>
+        <tr><th>Vārds</th><th>Uzvārds</th><th>Ziņa</th><th>Datums</th></tr>
+        {% for msg in messages %}
+        <tr>
+            <td>{{ msg[1] }}</td>
+            <td>{{ msg[2] }}</td>
+            <td>{{ msg[3] }}</td>
+            <td>{{ msg[0] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
